@@ -28,6 +28,20 @@ A Next.js web application that generates interactive quizzes from PDF documents.
 	npm install
 	```
 
+### API Key Setup
+
+To enable quiz generation, you need a Google Generative AI API key:
+
+1. Go to [Google AI Studio API Keys](https://aistudio.google.com/api-keys).
+2. Sign in and create a new API key.
+3. Copy your API key.
+4. Create a `.env` file in your project root (if it doesn't exist).
+5. Add the following line to your `.env` file:
+	```env
+	GOOGLE_GENERATIVE_AI_API_KEY=your_api_key
+	```
+6. Replace `your_api_key` with your actual API key.
+
 ### Development
 Start the development server:
 ```bash

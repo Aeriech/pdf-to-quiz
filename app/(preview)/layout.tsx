@@ -8,8 +8,8 @@ const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-pdf-support.vercel.app"),
-  title: "PDF Support Preview",
-  description: "Experimental preview of PDF support with the AI SDK",
+  title: "PDF to Quiz",
+  description: "Convert your PDF files into interactive quizzes with ease. Upload your PDF, and our AI will generate engaging quizzes to help you learn and retain information effectively.",
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { experimental_useObject } from "ai/react";
+import { experimental_useObject } from "@ai-sdk/react";
 import { questionsSchema } from "@/lib/schemas";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -18,10 +18,8 @@ import {
 import { Progress } from "@/components/ui/progress";
 import Quiz from "@/components/quiz";
 import { Link } from "@/components/ui/link";
-import NextLink from "next/link";
 import { generateQuizTitle } from "./actions";
 import { AnimatePresence, motion } from "framer-motion";
-import { VercelIcon, GitIcon } from "@/components/icons";
 
 export default function ChatWithFiles() {
   const [files, setFiles] = useState<File[]>([]);
@@ -100,7 +98,7 @@ export default function ChatWithFiles() {
   };
 
   const progress = partialQuestions ? (partialQuestions.length / 4) * 100 : 0;
-
+  
   if (questions.length === 4) {
     return (
       <Quiz title={title ?? "Quiz"} questions={questions} clearPDF={clearPDF} />
@@ -160,7 +158,7 @@ export default function ChatWithFiles() {
               Upload a PDF to generate an interactive quiz based on its content
               using the <Link href="https://sdk.vercel.ai">AI SDK</Link> and{" "}
               <Link href="https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai">
-                Google&apos;s Gemini Pro
+                Google&apos;s Gemini AI
               </Link>
               .
             </CardDescription>
@@ -235,23 +233,6 @@ export default function ChatWithFiles() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
-        <NextLink
-          target="_blank"
-          href="https://github.com/vercel-labs/ai-sdk-preview-pdf-support"
-          className="flex flex-row gap-2 items-center border px-2 py-1.5 rounded-md hover:bg-zinc-100 dark:border-zinc-800 dark:hover:bg-zinc-800"
-        >
-          <GitIcon />
-          View Source Code
-        </NextLink>
-
-        <NextLink
-          target="_blank"
-          href="https://vercel.com/templates/next.js/ai-quiz-generator"
-          className="flex flex-row gap-2 items-center bg-zinc-900 px-2 py-1.5 rounded-md text-zinc-50 hover:bg-zinc-950 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-50"
-        >
-          <VercelIcon size={14} />
-          Deploy with Vercel
-        </NextLink>
       </motion.div>
     </div>
   );

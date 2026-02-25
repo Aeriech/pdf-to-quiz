@@ -3,10 +3,11 @@
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
+import { config } from "@/lib/config";
 
 export const generateQuizTitle = async (file: string) => {
   const result = await generateObject({
-    model: google("gemini-1.5-flash-latest"),
+    model: google(config.geminiModel),
     schema: z.object({
       title: z
         .string()
